@@ -1,6 +1,17 @@
-<input type="text" [value]="title" [(ngModel)]="title">
+<div>
 
-{{title}}
-<hr>
-<button (click)="add()"> Add </button>
-{{contador}}
+            <h2>Todo List</h2>
+
+            <input [(ngModel)]="newTask" (keyup.enter)="addTask()">
+            <button (click)="addTask()" class="btn btn-primary">Add</button>
+
+            <ul>
+                <li *ngFor="let task of tasks; let i = index" class="table">
+                    {{task}} <button (click)="deleteTask(i)" class="btn btn-danger"> delete </button>
+                </li>
+            </ul>
+
+
+
+
+</div>

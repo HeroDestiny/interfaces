@@ -6,11 +6,18 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Hello World!';
+  tasks: string[] = [];
+  newTask: string = '';
 
-  contador : number = 0;
-
-  add(){
-    this.contador += 1;
+  addTask(){
+    if(this.newTask.trim()!== ''){
+      this.tasks.push(this.newTask);
+      this.newTask = '';
+    }
   }
+
+  deleteTask(index: number){
+    this.tasks.splice(index, 1);
+  }
+  
 }
