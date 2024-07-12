@@ -1,0 +1,20 @@
+<div class="container mt-5 d-flex justify-content-center flex-column align-items-center">
+    <div class="input-group mb-3" style="max-width: 500px;">
+      <input type="text" class="form-control" [(ngModel)]="newItem" placeholder="Digite um item" />
+      <button class="btn btn-primary" (click)="addItem()">Adicionar</button>
+    </div>
+  
+    <table style="max-width: 500px;">
+      <thead>
+        <tr>
+          <th>Items</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items" appHighlight="lightblue">
+          <td>{{ item }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
