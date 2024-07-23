@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DadosService {
-  private dados: string[] = [];
+  private dados: string[] = ['Primeiro', 'Segundo', 'Terceiro'];
 
   getDado(): string[] {
     return this.dados;

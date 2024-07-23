@@ -16,7 +16,7 @@ export class InputComponent {
     this.newDado = '';
   }
 
-  get items(): string[] {
+  get dados(): string[] {
     return this.DadosService.getDado();
   }
 }

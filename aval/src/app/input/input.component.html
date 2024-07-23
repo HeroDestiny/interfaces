@@ -1,18 +1,21 @@
 <div class="container mt-5 d-flex justify-content-center flex-column align-items-center">
-    <div class="input-group mb-3" style="max-width: 500px;">
+  <div class="row">
+
+  </div>
+    <div class="input-group mb-3 col-2">
       <input type="text" class="form-control" [(ngModel)]="newDado" placeholder="Digite um item" />
       <button class="btn btn-primary" (click)="addDado()">Adicionar</button>
     </div>
   
-    <table style="max-width: 500px;">
+    <table>
       <thead>
         <tr>
           <th>Items</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of items" appHighlight="lightblue">
-          <td>{{ item }}</td>
+        <tr *ngFor="let dado of dados" appHighlight="lightblue">
+          <td>{{ dado }}</td>
         </tr>
       </tbody>
     </table>
