@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DadosService } from './dados.service';
 
 @Component({
   selector: 'app-input',
@@ -6,14 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './input.component.css'
 })
 export class InputComponent {
-  newItem: string = '';
-  items: string[] = [];
+  newDado: string = '';
 
-  addItem() {
-    if (this.newItem.trim()) {
-      this.items.push(this.newItem.trim());
-      this.newItem = '';
-    }
+  constructor(private DadosService: DadosService) {}
+
+  addDado() {
+    this.DadosService.addDado(this.newDado);
+    this.newDado = '';
+  }
+
+  get items(): string[] {
+    return this.DadosService.getDado();
   }
 }
 
