@@ -1,13 +1,24 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs'; // Add this line
+
+export interface Dado {
+  id: number;
+  name: string;
+  email: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DadosService {
-  private dados: string[] = ['Primeiro', 'Segundo', 'Terceiro'];
+  private apiUrl = 'https://3.128.249.166:3000/clients';
+  dados: string[] = [];
 
-  getDado(): string[] {
-    return this.dados;
+  constructor(private http: HttpClient) { }
+
+  getDados(): Observable<Dado[]> {
+    return this.http.get<Dado[]>(this.apiUrl);
   }
 
   addDado(newDado: string): void {

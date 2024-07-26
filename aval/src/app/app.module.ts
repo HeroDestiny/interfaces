@@ -1,22 +1,20 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; // Importar FormsModule
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InputComponent } from './input/input.component';
-import { FormsModule } from '@angular/forms';
-import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent,
-    HighlightDirective
+    InputComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    HttpClientModule,
+    FormsModule // Adicionar FormsModule aos imports
   ],
   providers: [],
   bootstrap: [AppComponent]

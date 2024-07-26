@@ -1,23 +1,25 @@
-import { Component } from '@angular/core';
-import { DadosService } from './dados.service';
+import { Component, OnInit } from '@angular/core';
+import { DadosService, Dado } from './dados.service';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrl: './input.component.css'
+  styleUrls: ['./input.component.css']
 })
-export class InputComponent {
+export class InputComponent implements OnInit {
+  dados: Dado[] = [];
   newDado: string = '';
 
-  constructor(private DadosService: DadosService) {}
+  constructor(private dadosService: DadosService) { }
+
+  ngOnInit() {
+    this.dadosService.getDados().subscribe((data: Dado[]) => {
+      this.dados = data;
+    });
+  }
 
   addDado() {
-    this.DadosService.addDado(this.newDado);
-    this.newDado = '';
-  }
-
-  get dados(): string[] {
-    return this.DadosService.getDado();
+    this.dadosService.addDado(this.newDado);
+    this.newDado = ''; // Limpar o campo de entrada após adicionar
   }
 }
-
