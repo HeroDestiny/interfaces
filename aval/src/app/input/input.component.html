@@ -53,16 +53,16 @@
     <div class="col-md-6 offset-md-3">
       <form [formGroup]="postForm" (ngSubmit)="addPost()">
         <div class="mb-3">
-          <label for="titulo" class="form-label">Título</label>
-          <input type="text" id="titulo" class="form-control" formControlName="titulo" placeholder="Digite o título" />
-          <div *ngIf="postForm.get('titulo')?.invalid && postForm.get('titulo')?.touched" class="text-danger">
+          <label for="title" class="form-label">Título</label>
+          <input type="text" id="title" class="form-control" formControlName="title" placeholder="Digite o título" />
+          <div *ngIf="postForm.get('title')?.invalid && postForm.get('title')?.touched" class="text-danger">
             Título é obrigatório.
           </div>
         </div>
         <div class="mb-3">
-          <label for="descricao" class="form-label">Descrição</label>
-          <textarea id="descricao" class="form-control" formControlName="descricao" placeholder="Digite a descrição"></textarea>
-          <div *ngIf="postForm.get('descricao')?.invalid && postForm.get('descricao')?.touched" class="text-danger">
+          <label for="description" class="form-label">Descrição</label>
+          <textarea id="description" class="form-control" formControlName="description" placeholder="Digite a descrição"></textarea>
+          <div *ngIf="postForm.get('description')?.invalid && postForm.get('description')?.touched" class="text-danger">
             Descrição é obrigatória.
           </div>
         </div>
@@ -77,5 +77,30 @@
       </form>
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data e Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of posts">
+            <td>{{ post.title }}</td>
+            <td>{{ post.description }}</td>
+            <td>{{ post.dataHoraFormatada }}</td>
+            <td>
+              <button (click)="deletePost(post.id)" class="btn btn-danger">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
 

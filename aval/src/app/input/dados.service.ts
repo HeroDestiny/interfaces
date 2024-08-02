@@ -24,6 +24,10 @@ export class DadosService {
     }
   }
 
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.postsUrl);
+  }
+
   cadastrarDado(dado: Dado): Observable<Dado> {
     return this.http.post<Dado>(this.apiUrl, dado);
   }
@@ -44,5 +48,9 @@ export class DadosService {
 
   getPostsByEstudanteId(estudanteId: string): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.postsUrl}?estudanteId=${estudanteId}`);
+  }
+
+  deletePost(postId: string): Observable<any> {
+    return this.http.delete(`${this.postsUrl}/${postId}`);
   }
 }

@@ -1,7 +1,8 @@
 export interface Post {
     id: string;
-    titulo: string;
-    descricao: string;
-    dataHora: Date;
+    title: string;
+    description: string;
+    date: Date;
     estudanteId: string;
+    dataHoraFormatada?: string;
   }
