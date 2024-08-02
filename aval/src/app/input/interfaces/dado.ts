@@ -1,5 +1,5 @@
 export interface Dado {
-    id?: number;
-    name: string;
-    email: string;
-  }
+  matricula: string;
+  nome: string;
+  email: string;
+}
