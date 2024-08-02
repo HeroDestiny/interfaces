@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DadosService, Dado } from './dados.service';
+import { DadosService } from './dados.service';
+import { Dado } from './interfaces/dado';
 
 @Component({
   selector: 'app-input',

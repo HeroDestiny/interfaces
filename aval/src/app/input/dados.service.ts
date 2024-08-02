@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'; // Add this line
-
-export interface Dado {
-  id: number;
-  name: string;
-  email: string;
-}
-
+import { Dado } from './interfaces/dado'; // Add this line
 @Injectable({
   providedIn: 'root'
 })
@@ -25,5 +19,9 @@ export class DadosService {
     if (newDado.trim()) {
       this.dados.push(newDado.trim());
     }
+  }
+
+  cadastrarDado(dado: Dado): Observable<Dado> {
+    return this.http.post<Dado>(this.apiUrl, dado);
   }
 }
